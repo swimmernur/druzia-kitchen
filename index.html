@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <title>Друзья говорят — Кухня</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <div class="splash">
+    <div class="logo">
+      <span class="emoji">🍽️</span>
+      <h1>Друзья говорят</h1>
+      <p class="subtitle">Система управления кухней</p>
+    </div>
+
+    <div class="role-cards">
+      <!-- Карточка Повара -->
+      <div class="card" id="card-cook" onclick="selectRole('cook')">
+        <div class="card-icon">👨‍🍳</div>
+        <div class="card-title">Повар</div>
+        <div class="card-desc">Заготовки на смену,<br>нормы выхода</div>
+      </div>
+
+      <!-- Карточка Шефа -->
+      <div class="card" id="card-chef" onclick="selectRole('chef')">
+        <div class="card-icon">👨‍💼</div>
+        <div class="card-title">Шеф</div>
+        <div class="card-desc">ТТК, продажи,<br>склад, настройки</div>
+      </div>
+    </div>
+
+    <!-- Модалка авторизации -->
+    <div class="modal-overlay" id="modal" style="display:none;">
+      <div class="modal">
+        <h2 id="modal-title">Вход</h2>
+        <div class="pin-display" id="pin-display">____</div>
+        <div class="numpad">
+          <button onclick="pinPress('1')">1</button>
+          <button onclick="pinPress('2')">2</button>
+          <button onclick="pinPress('3')">3</button>
+          <button onclick="pinPress('4')">4</button>
+          <button onclick="pinPress('5')">5</button>
+          <button onclick="pinPress('6')">6</button>
+          <button onclick="pinPress('7')">7</button>
+          <button onclick="pinPress('8')">8</button>
+          <button onclick="pinPress('9')">9</button>
+          <button onclick="pinPress('del')" class="btn-del">⌫</button>
+          <button onclick="pinPress('0')">0</button>
+          <button onclick="pinPress('ok')" class="btn-ok">OK</button>
+        </div>
+        <p class="error-msg" id="error-msg"></p>
+        <button class="btn-cancel" onclick="closeModal()">Отмена</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

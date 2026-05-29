@@ -1,0 +1,149 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0f0f1a;
+  --card-bg:   #1a1a2e;
+  --accent:    #e94560;
+  --accent2:   #f5a623;
+  --text:      #f0f0f0;
+  --muted:     #888;
+  --radius:    16px;
+  --shadow:    0 8px 32px rgba(0,0,0,.45);
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== SPLASH SCREEN ===== */
+.splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 24px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.logo { text-align: center; }
+.logo .emoji { font-size: 56px; display: block; margin-bottom: 8px; }
+.logo h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: 0.5px; }
+.logo .subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+
+/* ===== ROLE CARDS ===== */
+.role-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 28px 16px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  border: 2px solid transparent;
+  transition: transform .15s, border-color .15s;
+  user-select: none;
+}
+.card:hover  { transform: translateY(-4px); border-color: var(--accent); }
+.card:active { transform: scale(.97); }
+
+.card-icon  { font-size: 44px; margin-bottom: 10px; }
+.card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+.card-desc  { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+
+#card-cook  { border-color: rgba(245,166,35,.25); }
+#card-chef  { border-color: rgba(233,69,96,.25); }
+#card-cook:hover { border-color: var(--accent2); }
+#card-chef:hover { border-color: var(--accent); }
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.75);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  width: min(340px, 90vw);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.modal h2 { font-size: 1.3rem; font-weight: 700; }
+
+/* ===== PIN DISPLAY ===== */
+.pin-display {
+  font-size: 2.4rem;
+  letter-spacing: 12px;
+  font-weight: 700;
+  color: var(--accent2);
+  min-height: 48px;
+}
+
+/* ===== NUMPAD ===== */
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.numpad button {
+  background: #252540;
+  border: none;
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 16px;
+  cursor: pointer;
+  transition: background .1s, transform .1s;
+}
+.numpad button:hover  { background: #333358; }
+.numpad button:active { transform: scale(.93); }
+
+.btn-del { color: var(--accent) !important; }
+.btn-ok  { background: var(--accent) !important; color: #fff !important; }
+.btn-ok:hover { background: #c73652 !important; }
+
+/* ===== ERROR ===== */
+.error-msg {
+  color: var(--accent);
+  font-size: 0.85rem;
+  min-height: 20px;
+  text-align: center;
+}
+
+/* ===== CANCEL BTN ===== */
+.btn-cancel {
+  background: none;
+  border: 1px solid var(--muted);
+  color: var(--muted);
+  border-radius: 8px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color .15s, border-color .15s;
+}
+.btn-cancel:hover { color: var(--text); border-color: var(--text); }

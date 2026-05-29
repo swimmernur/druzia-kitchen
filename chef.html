@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Шеф — Друзья говорят</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div style="padding:24px; max-width:900px; margin:0 auto;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
+      <h1 style="font-size:1.4rem;">👨‍💼 Панель шефа</h1>
+      <button onclick="logout()" style="background:none;border:1px solid #555;color:#888;border-radius:8px;padding:6px 14px;cursor:pointer;font-size:.85rem;">Выход</button>
+    </div>
+    <nav style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;">
+      <button class="tab-btn active" onclick="showTab('ttk')">ТТК</button>
+      <button class="tab-btn" onclick="showTab('sales')">Продажи</button>
+      <button class="tab-btn" onclick="showTab('stock')">Склад</button>
+      <button class="tab-btn" onclick="showTab('settings')">Настройки</button>
+    </nav>
+    <div id="content">
+      <p style="color:#888;">⏳ Загрузка данных из Google Sheets...</p>
+    </div>
+  </div>
+  <script src="js/sheets.js"></script>
+  <script src="js/chef.js"></script>
+</body>
+</html>
